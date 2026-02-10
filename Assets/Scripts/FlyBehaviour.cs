@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class FlyBehaviour : MonoBehaviour
+{
+    [SerializeField] private float _linearVelocity= 1.5f;
+    private Rigidbody2D _rb;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if(Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Debug.Log("CLICK DETECTED");
+            _rb.linearVelocity = Vector2.up * _linearVelocity;
+
+        }
+       
+     
+    }
+}
+
+
